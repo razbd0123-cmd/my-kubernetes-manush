@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-webapp
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/YOUR-USERNAME/YOUR-REPO.git   # <-- שנה לריפו שלך
+    targetRevision: HEAD
+    path: k8s
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: my-webapp
+
+  syncPolicy:
+    automated:
+      prune: true        # מוחק משאבים שהוסרו מגיט
+      selfHeal: true     # מתקן שינויים ידניים אוטומטית
+    syncOptions:
+      - CreateNamespace=true
