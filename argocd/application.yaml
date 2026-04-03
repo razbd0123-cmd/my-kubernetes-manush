@@ -7,8 +7,8 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/YOUR-USERNAME/YOUR-REPO.git   # <-- שנה לריפו שלך
-    targetRevision: HEAD
+    repoURL: https://github.com/razbd0123-cmd/my-kubernetes-manush.git
+    targetRevision: master
     path: k8s
 
   destination:
